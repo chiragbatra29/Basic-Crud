@@ -1,0 +1,17 @@
+{
+  "main": "app.js",
+  "dependencies": {
+    "express": "latest",
+    "gmail-send": "^1.2.7",
+    "nodemailer": "latest"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "email-node",
+  "version": "1.0.0",
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>signup Page</title>
+
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+    <script
+			  src = "https://code.jquery.com/jquery-3.1.1.js"
+			  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+			  crossorigin="anonymous"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+  </head>
+  <body bgcolor="#E6E6FA">
+    <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-4">
+		</div>
+		<div class="col-md-4">
+			<div class="page-header">
+				<h1>
+					New User
+				</h1>
+			</div>
+        <form action="/home/user/Desktop/chirag/login/src/index.html">
+				<div class="form-group">
+
+          <label for="Name">
+						Name
+					</label>
+					<input class="form-control" id="name" type="String" placeholder="username" required>
+				</div>
+				<div class="form-group">
+
+          <label for="Email">
+						Email address
+					</label>
+					<input class="form-control" id="email" type="email" placeholder="eg: xyz@gmail.com">
+				</div>
+				<div class="form-group">
+
+          <label for="Password">
+            Password
+          </label>
+          <input class="form-control" id="password" type="password" placeholder="Enter password">
+        </div>
+        <div class="form-group">
+        </div>
+
+					<label for="Phone_number">
+						Phone Number
+					</label>
+					<input class="form-control" id="phone_number" type=Number placeholder="eg: 9876543210">
+				</div>
+				<div class="form-group">
+
+				<button type="submit" id="button" class="btn btn-default">
+					Submit
+				</button>
+			</form>
+		</div>
+		<div class="col-md-4">
+		</div>
+	</div>
+</div>
+    <script>
+    $(document).ready(function(){
+    $("#button").click(function(e){
+      var name = document.getElementById("name").value;
+      var password = document.getElementById("password").value;
+      var email = document.getElementById("email").value;
+      var phone_number = document.getElementById("phone_number").value;
+        $.post("http://localhost:3000/api/register",
+        {
+          name: name,
+          password : password,
+          email : email,
+          phone_number :phone_number
+        },
+        function(data,status){
+            alert("Data: " + data + "\nStatus: " + status);
+        });
+        if(name && password && email && phone_number){
+         window.location = "/api/loginPage";
+       }
+        e.preventDefault();
+    });
+  });
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>

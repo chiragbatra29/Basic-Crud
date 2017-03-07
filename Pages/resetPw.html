@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script
+        src="https://code.jquery.com/jquery-3.1.1.js"
+        integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+        crossorigin="anonymous"></script>
+    <title>Change Password</title>
+
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+  </head>
+  <body bgcolor="#E6E6FA">
+    <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-4">
+		</div>
+		<div class="col-md-4">
+			<div class="page-header">
+				<h1>
+					Set New Password
+				</h1>
+			</div>
+      <p id="demo"></p>
+			<form>
+				<div class="form-group">
+
+          <label for="Password">
+            New Password
+          </label>
+          <input class="form-control" id="newPass" type="password" placeholder="Enter password">
+        </div>
+        <div class="form-group">
+        </div>
+
+        <label for="conformPassword">
+          Confirm Password
+        </label>
+        <input class="form-control" id="newPassConfirm" type="password" placeholder="Re-Enter password">
+        </div>
+        <div class="form-group">
+        </div>
+				<button type="submit" id="button" class="btn btn-default">
+					Submit
+				</button>
+			</form>
+		</div>
+		<div class="col-md-4">
+		</div>
+	</div>
+</div>
+
+<script>
+$(document).ready(function(){
+  $("#button").click(function(e){
+    var newPass = document.getElementById("newPass").value;
+    var newPassConfirm = document.getElementById("newPassConfirm").value;
+    var url = window.location.href;
+    var len = url.indexOf("=");
+    var Token = url.slice(len+1);
+    //alert(url);
+    $.post("http://localhost:3000/api/changePass",
+    {
+    newpass: newPass,
+    newpassconfirm: newPassConfirm,
+    token: Token
+    },
+  function(data,status){
+    alert("Data: " + data + "\nStatus: " + status);
+  });
+  if(newpass && newPassConfirm){
+  if(newPass !== newPassConfirm){
+    alert('Password Not Matched');
+  }
+  else{
+    alert("Password Changed Succesfully");
+    window.location = "/api/loginPage";
+    e.preventDefault();
+  }}
+  });
+});
+</script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
