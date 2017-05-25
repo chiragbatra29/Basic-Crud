@@ -1,12 +1,12 @@
+# Basic-Crud
+
 > Crud Installation
-
-
 
 Brief instructions:
 
 ```
 $ git clone  
-$ cd Crud
+$ cd Basic-Crud
 $ npm install
 $ node server.js
 ```
@@ -28,7 +28,6 @@ Full tutorial: <https://docs.mongodb.com/manual/installation/>
 
 
 
-
 http://localhost:3000/api/start[GET]  ---- To start the crud
 
 
@@ -36,4 +35,4 @@ http://localhost:3000/api/start[GET]  ---- To start the crud
 
 
 
-# Basic-Crud
+
