@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Profie Page</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div id="wrapper">
+
+    <div id="header">
+
+      <div id="nav"><a href="http://localhost:3000/api/loginPage">Logout</a>
+      </div>
+      <div id="bg"></div>
+    </div>
+
+    <div id="main-content">
+      <div id="left-column">
+        <div id="logo">
+          Welcome
+        </div>
+        <div class="box">
+          <h1>Here is Your Profile</h1>
+        </div>
+        <h2>
+				Name : <h id ="name">
+			</h2>
+        <h2>
+				Email : <h id = "email">
+			</h2>
+        <h2>
+				Contact No. : <h id = "contact_no">
+			</h2>
+
+      </div>
+      <div id="right-column">
+        <div><img src="" width="250" height="250" id="main-image" /></div>
+        <div class="sidebar">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var url = window.location.href;
+    var len = url.indexOf("=");
+    var data = url.slice(len + 1);
+    data = data.replace(/%22/g, '"');
+    data = data.replace(/%20/g, ' ');
+
+    var objJSON = eval("(function(){return " + data + ";})()");
+
+    document.getElementById("name").innerHTML = objJSON.name;
+    document.getElementById("email").innerHTML = objJSON.email;
+    document.getElementById("contact_no").innerHTML = objJSON.phone_number;
+    document.getElementById("main-image").src = objJSON.img;
+  </script>
+</body>
+
+</html>

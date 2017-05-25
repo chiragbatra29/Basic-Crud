@@ -4,11 +4,16 @@ var autoIncrement = require('mongoose-auto-increment');
 
 
 var userSchema = new mongoose.Schema({
-  name: {type: String, unique: true, required: true},
-  email: {type: String, unique: true, required: true},
-  password: {type: String, required: true},
-  phone_number: {type: Number, unique: false, required: true},
-  token:String
+  name: { type: String, unique: true, required: true },
+  email: { type: String, unique: true, required: true },
+  password: { type: String, required: true },
+  phone_number: { type: Number, unique: false, required: true },
+  img:  String,
+  token: String,
+  facebook: {type: Array, unique:true},
+  google: {type: Array, unique:true},
+  twitter: {type: Array, unique:true},
+  created_at: {type: Date, default: Date.now}
 });
 
 
